@@ -2,9 +2,15 @@ import streamlit as st
 import ee
 from geemap import foliumap
 
-    
+st.title('Map visualizer of land-cover classifiers results') 
 
-Map = foliumap.Map()
+st.markdown('This app allows to view results of land-cover classifiers applied to region Lazio reflectance over 2018.\n')
+st.markdown('Surface reflectance is collected from Sentinel-2 detections (level-2A) over 2018 period. Each pixel represents the median reflectance over all 2018 products with cloud coverage lower than 60%.\n') 
+st.markdown('By default, it is displayed only RGB image of Lazio. It is anyway possible to easily activate the display for each classification algorithm mask.\n')
+st.markdown('MLP stands for Multi-Layer Perceptron while RF for Random Forest. Each classification architecture is trained both on 1x1 and 3x3 pixels images; the slider for 3x3 images has a stride equal to one pixel (meaning for each pixel the algorithm accounts for its neighbourhood).')
+
+Map = foliumap.Map(center = [41.902782, 12.496366],
+                   zoom = 8)
 
 
 lazio_TCI = ee.Image('users/federicopavesiwork/Lazio_2018_TCI')

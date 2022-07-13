@@ -2,11 +2,10 @@ import streamlit as st
 import ee
 from geemap import foliumap
 
-ee.Authenticate()
-ee.Initialize()
     
 
 Map = foliumap.Map()
+
 
 lazio_TCI = ee.Image('users/federicopavesiwork/Lazio_2018_TCI')
 mlp11 = ee.Image('users/federicopavesiwork/MLP_1x1')

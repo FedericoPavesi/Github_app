@@ -2,11 +2,8 @@ import streamlit as st
 import ee
 from geemap import foliumap
 
-try:
-    ee.Initialize()
-except:
-    ee.Authenticate()
-    ee.Initialize()
+ee.Authenticate()
+ee.Initialize()
     
 
 Map = foliumap.Map()
